@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Technology;
+use App\Models\Category;
 
 class Project extends Model
 {
@@ -21,6 +22,10 @@ class Project extends Model
     public function technologies(){
         return $this->belongsToMany(Technology::class);
     }
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
+
     //metodo per la validazione
     public static function getValidationRules()
     {
